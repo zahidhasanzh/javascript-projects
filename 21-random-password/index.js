@@ -1,19 +1,28 @@
-const imageContainerEl = document.querySelector(".image-container");
-const btnEl = document.querySelector(".btn");
+const passwordBox = document.getElementById('password');
+const lenght = 12;
 
-btnEl.addEventListener("click", () => {
-    imgNum = 10;
-    addNewImages()
-});
+const upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+const lowerCase = "abcdefghijklmnopqrstuvwxyz";
+const number = "0123456789";
+const symbol = "@#$%^&(){[]}<>/-=_+`*";
 
+const allChars = upperCase + lowerCase + number + symbol;
 
-function addNewImages(){
-    for(let index = 0; index < imgNum; index++){
-        
-    const newImageEl = document.createElement("img");
-    newImageEl.src = `https://picsum.photos/300?random=${Math.floor(Math.random()*2000)};`
+function createPassword(){
+    let password = "";
 
-    imageContainerEl.appendChild(newImageEl)
+    password += upperCase[Math.floor(Math.random() * upperCase.length)];
+    password += lowerCase[Math.floor(Math.random() * lowerCase.length)];
+    password += number[Math.floor(Math.random() * number.length)];
+    password += symbol[Math.floor(Math.random() * symbol.length)];
+
+    while(lenght > password.length){
+        password += allChars[Math.floor(Math.random() * allChars.length)];
     }
-    
+    passwordBox.value = password;
+}
+
+function copyPassword(){
+    passwordBox.select();
+    document.execCommand("copy");
 }

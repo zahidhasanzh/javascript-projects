@@ -3,17 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Random Photos</title>
+    <title>Random Password Generator</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-   <div class="image-container">
-        <img src="https://picsum.photos/300?random=1">
-        <img src="https://picsum.photos/300?random=2">
-        <img src="https://picsum.photos/300?random=3">
-   </div>
-
-   <button class="btn">Load More</button>
+    <div class="container">
+        <h1>Generate a <br><span>Random Password</span></h1>
+        <div class="display">
+            <input type="text" id="password" placeholder="password">
+            <img src="img/copy.png" onclick="copyPassword()">
+        </div>
+        <button onclick="createPassword()"><img src="img/generate.png" >Generate Password</button>
+    </div>
+   
 
     <script src="index.js"></script>
 </body>
